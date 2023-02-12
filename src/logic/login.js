@@ -6,7 +6,8 @@ async function signinUser(user) {
       localStorage.setItem('token', res.data.token)
       return res.data
     }).catch(err => {
-      return 'Login failed. Check fields'
+      console.log(user)
+      return { error: err }
     })
   return data
 }

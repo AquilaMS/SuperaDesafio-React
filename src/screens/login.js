@@ -2,6 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { signinUser } from '../logic/login'
 import MyToasts from '../components/toasts/Toasts'
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
   const [username, setName] = useState('')
@@ -13,9 +15,9 @@ const Login = () => {
   const getDataFromForm = () => {
     signinUser({ username, password })
       .then(res => {
-        if (res.error) MyToasts('Email or password are incorrect')
+        if (res.error) toast('Username or password are incorrect')
         else {
-          MyToasts(`Welcome back`)
+          toast('Welcome back!')
           changeScreen()
         }
       })

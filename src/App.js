@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import 'react-toastify/dist/ReactToastify.css';
 import Login from './screens/login';
 import Register from './screens/register';
 import Product from './components/Product';
 import ProductList from './components/ProductList';
 import Home from './screens/home';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path='/home' element={<Home />} />
         </Routes>
       </Router>
-
+      <ToastContainer />
     </div>
   );
 }
