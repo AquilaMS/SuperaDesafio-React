@@ -1,6 +1,8 @@
 .all-content-form {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+
 }
 
 .background-form {
@@ -11,6 +13,7 @@
   margin-top: 12%;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 40px;
+  background-color: white;
 }
 
 .login-register-form {
