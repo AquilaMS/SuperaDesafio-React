@@ -4,7 +4,7 @@ const getConfig = () => {
   const token = localStorage.getItem('token')
   const config = {
     headers: {
-      'Authorization': `bearer ${token}`,
+      'Authorization': `Token ${token}`,
       'accept': 'application/json'
     }
   };
@@ -22,4 +22,16 @@ const getAllProducts = async () => {
   return data
 }
 
-export { getAllProducts }
+
+const putToCart = async (id_product) => {
+  const config = getConfig().config
+  const data = await axios.post('http://127.0.0.1:8000/api/cart/', id_product, config)
+    .then(res => {
+      console.log(res.data)
+      return res.data
+    })
+  return data
+}
+
+
+export { getAllProducts, putToCart }

@@ -1,4 +1,9 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import { putToCart } from "../logic/products";
+import { changeValue } from "../screens/home";
+
+var priceExport = 0
 
 const Product = ({ name, price, id, image }) => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -8,6 +13,14 @@ const Product = ({ name, price, id, image }) => {
       setImageUrl(module.default);
     });
   }, [image]);
+
+  const toCart = () => {
+    putToCart({ id_product: id }).then(res => {
+      toast(`Total price: R$ ${res.total}`)
+    })
+
+  }
+
   return (
     <div className="product-list-main">
 
@@ -21,7 +34,7 @@ const Product = ({ name, price, id, image }) => {
         <div className="product-price">
           <div className="set-product-price">R$ {price}</div>
         </div>
-        <div className="product-add-cart">
+        <div className="product-add-cart" onClick={toCart}>
           <div className="set-product-add-cart">Add to Cart</div>
         </div>
       </div>
@@ -30,3 +43,4 @@ const Product = ({ name, price, id, image }) => {
 }
 
 export default Product
+export { priceExport }
