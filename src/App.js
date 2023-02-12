@@ -7,6 +7,7 @@ import Login from './screens/login';
 import Register from './screens/register';
 import Product from './components/Product';
 import ProductList from './components/ProductList';
+import Home from './screens/home';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/product' element={<Product />} />
           <Route path='/productlist' element={<ProductList />} />
+          <Route path='/home' element={<Home />} />
         </Routes>
       </Router>
 
